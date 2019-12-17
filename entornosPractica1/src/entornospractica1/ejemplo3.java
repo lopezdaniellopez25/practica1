@@ -14,16 +14,16 @@ import java.util.Scanner;
  */
 public class ejemplo3 {
         public static void main(String[] args) {
-        
+        String seguir;
         double temperaturas[] = new double[7];
         String diasSemana[]={"lunes","martes","miercoles","jueves","viernes","sabado","domingo"};
         double suma = 0,max=0,min=0;
         int dia,posMax=0,posMin=0;
         Scanner sc = new Scanner(System.in);
         sc.useLocale(Locale.ENGLISH);
-
+        do{
         System.out.println("Anota temperatura de la semana");
-
+        
         for (int i = 0; i < temperaturas.length; i++) {
             System.out.println(diasSemana[i] + ":");
             temperaturas[i] = sc.nextDouble();
@@ -43,7 +43,7 @@ public class ejemplo3 {
                 }
             }
         }
-
+        
         System.out.println("La temperatura media ha sido:" + suma / 7);
         System.out.println("La máxima fue de "+max+" grados el "+diasSemana[posMax]);
         System.out.println("El mínimo fue de "+min+" grados el "+diasSemana[posMin]);
@@ -53,5 +53,8 @@ public class ejemplo3 {
         } while (dia<1 || dia>7);
         
         System.out.println("La temperatura fue "+ temperaturas[dia-1] );
+            System.out.println("¿quieres seguir?");
+            seguir=sc.nextLine();
+        }while(seguir.equalsIgnoreCase("si"));
     }
 }
